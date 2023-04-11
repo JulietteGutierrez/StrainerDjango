@@ -1,0 +1,22 @@
+URLS:
+1.-Comprar un item
+2.-Listar el carrito
+3.-Checkout para terminar la Compra
+4.-CRUD de Productos
+5.-CRUD de Usuarios
+6.-CRUD de Formas de Pago
+
+Para navegar debería estar logeado
+a.-Funcionalidad para crear usuario y password
+b.-Funcionalidad para el carrito
+c.-CRUD de Productos a Publicar
+
+Modelo de Datos
+1.-usuarios: (id, mail, password, ultimo login, administrador)
+2.-items: (id, id_categoria, descripcion, stock, precio) 
+3.-categorias: (id, descripcion)
+4.-carrito: (id, id_usuario, fecha, estado, id_forma_de_pago, id_formas_de_entrega)
+5.-carrito_items: (id, id_carrito, id_item, cantidad)
+6.-formas_de_pago: (id, descripcion)
+7.-formas_de_entrega: (id, descripcion)
+
