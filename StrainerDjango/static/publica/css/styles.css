@@ -399,3 +399,8 @@ header{
       font-size: 3.2em;
   }
 }
+
+.coffee-header1{
+  background-size: cover;
+  background-image: url(../assets/img/fotos/origenes.png);
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Strainer Coffee{% endblock title %} </title>
+        {%load static %}
+        <link rel="icon" type="image/x-icon" href="{% static 'publica/assets/img/favicon.ico' %}" >                                            
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'publica/css/styles.css'   %}?v={% now 'U' %}">
+        {% block css %}
+        <link rel="stylesheet" href="{% static 'publica/css/principal.css'%}?v={% now 'U' %}">
+        {% endblock  %}
+        
+        
+        
+
+    </head>
+    <body>
+        <header class="header">
+            <nav class="top-nav">
+                <a href="./">
+                    <img class="logo-top-nav" src="{% static 'publica/assets/img/logo/logo3_3.png'  %}" alt="Strainer Coffee" >
+                </a>
+                <input type="checkbox" id="menu">
+                <label for="menu" class="menu-label"> ☰ </label>
+                <ul>
+                    {% block menu %}
+                    <li><a href="./" class="lnkactive">Inicio</a></li>
+                    <li><a href="./origenes">Orígenes</a></li>
+                    <li><a href="./tienda-online">Tienda Online</a></li>
+                    <li><a href="./sucursales">Dónde encontrarnos</a></li>
+                    <li><a href="./contacto">Contacto</a></li>
+                    {% endblock %}
+                </ul>
+            </nav>
+            <section class="coffee-header1">
+                <div class="transbox1">
+                    <img class="index-logo1" src="{% static 'publica/assets/img/fotos/taza.jpeg'  %}">
+                    <div class="contentfl">
+                        <h1>{% block title2 %}Strainer Coffee{% endblock title2 %}</h1>
+                        <h2>{% block subtitle %}A new way of drinking coffee{% endblock subtitle %}</h2>
+                    </div>
+                </div>
+            </section>
+        </header>
+    
+        <main>
+            {% block contenido %}
+            {% endblock contenido %}
+        </main>
+        
+        <footer>           
+            <section class="footer-box">
+                <span><strong>Ubicación</strong></span><br><br>
+                <span>FullCity Coffee House</span><br>
+                <span>Thames 1535, CABA</span><br><br>
+                <span>Vitalcer</span><br>
+                <span>Av Rivadavia 6350, CABA </span><br>
+                <span>Días de entrega con 24hs de anticipación para envíos y 48hs para retiro por oficina.</span>
+            </section>
+            <section class="footer-box">
+                <span><b>Email</b></span><br><br>
+                <span>holastrainer@hotmail.com</span>
+            </section>
+            <section class="footer-box">
+                <span><b>Redes Sociales</b></span><br><br>
+                <div class="fa-container">
+                    <a href="" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-google"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="https://www.instagram.com/Strainer.Coffee/" class="fa fa-instagram"></a>
+                </div>
+                <br><br><br>
+                <span>© 2022
+         Strainer Coffee. Todos los Derechos Reservados.</span>
+            </section>
+        </footer>
+    </body>
+</html>
