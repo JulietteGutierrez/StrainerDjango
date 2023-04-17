@@ -8,8 +8,8 @@
         {%load static %}
         <link rel="icon" type="image/x-icon" href="{% static 'publica/assets/img/favicon.ico' %}" >                                            
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{% static 'publica/css/styles.css' %} ">
-        <link rel="stylesheet" href="{% static 'publica/css/principal.css' %}">
+        <link rel="stylesheet" href="{% static 'publica/css/styles.css'   %}?v={% now 'U' %}">
+        <link rel="stylesheet" href="{% static 'publica/css/principal.css'%}?v={% now 'U' %}">
     </head>
     <body>
         <header class="header">
