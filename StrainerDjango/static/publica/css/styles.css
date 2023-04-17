@@ -1,4 +1,4 @@
-@import url('./assets/fonts/Gotham/index.css');
+@import url('../assets/fonts/Gotham/index.css');
 
 *{
     font-family: 'Gotham', sans-serif;
@@ -21,7 +21,7 @@ header{
         top: 0;    
         z-index: 2;
         height: var(--alturaTopNav);
-        background-image: url("./assets/img/topnav.jpg");
+        background-image: url("../assets/img/topnav.jpg");
         width: 100%;
         display: flex;
         justify-content: space-around;
@@ -187,7 +187,7 @@ header{
         background: linear-gradient(
             rgba(255,255,255,.5)
             , rgba(255,255,255,.5)
-        ), url('./assets/img/tramas/trama.png');
+        ), url('../assets/img/tramas/trama.png');
     }
 
 /***************** Varios ***************/
