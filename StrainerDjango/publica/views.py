@@ -8,3 +8,6 @@ def index(request):
 
 def origenes(request):    
     return render(request,'publica/origenes.html')
+
+def tienda(request):    
+    return render(request,'publica/tienda.html')

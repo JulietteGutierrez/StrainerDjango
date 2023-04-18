@@ -1,0 +1,42 @@
+{% extends './base.html' %}
+{%load static %}
+
+{% block titulo %}Tienda{% endblock titulo %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'publica/css/tienda.css'%}?v={% now 'U' %}">
+{% endblock css %}
+
+{% block menu %}
+    <li><a href="../index">Inicio</a></li>
+    <li><a href="../origenes">Orígenes</a></li>
+    <li><a href="./" class="lnkactive">Tienda Online</a></li>
+    <li><a href="../sucursales">Dónde encontrarnos</a></li>
+    <li><a href="../contacto">Contacto</a></li>
+{% endblock %}
+
+{% block title2 %}Nuestros Productos{% endblock title2 %}
+{% block subtitle %}¡Date un gusto!{% endblock subtitle %}
+{% block contenido %}
+    <br>
+    <div class="with-sidebar">
+        <section class="contenedor-filtros">
+            <form onsubmit="return false;">
+                <label for="filtro_nombre">Buscar</label>
+                <input name=filtro_nombre id="filtro_nombre" type="search" placeholder="Nombre Producto...">
+                <br>
+                <label for="filtro_categoria">Categoría</label>
+                <select name="filtro_categoria" id="filtro_categoria">
+                    <option selected value="Todas">Todas</option>
+                </select>
+            </form>
+        </section>
+        <section class="content">
+            <div id="contenedor-productos" class="contenedor-productos">
+                <!--Acá se insertan los productos-->
+            </div>
+        </section>
+    </div>
+    <!--<aside></aside>-->
+    <script type="module" src="{% static 'publica/js/tienda.js' %}"></script>
+{% endblock contenido %}
