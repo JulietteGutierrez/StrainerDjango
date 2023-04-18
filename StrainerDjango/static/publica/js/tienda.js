@@ -49,18 +49,18 @@ import productos from './productos.js'
 
         dibujarProductos(productos)
 
-        function cargarCategorias(){
-            let opciones = ''
-            const categorias = productos.flatMap(p=>p.categorias)
-            new Set(categorias).forEach(categoria=>{
-                opciones+= `
-                    <option value="${categoria}">${categoria}</option>
-                `
-            })
+        // function cargarCategorias(){
+        //     let opciones = ''
+        //     const categorias = productos.flatMap(p=>p.categorias)
+        //     new Set(categorias).forEach(categoria=>{
+        //         opciones+= `
+        //             <option value="${categoria}">${categoria}</option>
+        //         `
+        //     })
 
-            filtro_categoria.innerHTML+=opciones
-        }
+        //     filtro_categoria.innerHTML+=opciones
+        // }
 
         [filtro_nombre, filtro_categoria].forEach(f=>f.addEventListener('input',ev => aplicarFiltros()))
 
-        cargarCategorias()
+        // cargarCategorias()
