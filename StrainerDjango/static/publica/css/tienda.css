@@ -1,0 +1,105 @@
+/************************* Filtros **********************/
+
+
+.with-sidebar{
+    margin: 0 1em;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+        "filtros content"
+    ;
+    margin-right: 0; /*Esto esta para que la scroll bar quede pegada al borde derecho.
+    Ante cualquier problema relacionado, sacar*/
+}
+
+@media (max-width: 768px){
+    .with-sidebar{
+        display: block;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .contenedor-productos{
+        text-align: center;
+        justify-content: center;
+    }
+
+}
+
+.contenedor-filtros{
+    grid-area: filtros;
+}
+
+.content{
+    grid-area: content;
+    height: inherit;
+    overflow: auto;
+}
+
+
+
+/************************* Grilla Productos **********************/
+
+.contenedor-productos{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(5em, 10em));
+    gap: 1em;
+}
+
+.producto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: inherit;
+    background-color: #ffffff;
+    border: solid #eaeaea 1px;
+}
+
+.box-img{
+    height: 6.25em;
+    width: 6.25em;
+    border-radius: 100%;
+    object-fit: contain;
+    overflow: hidden;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+}
+
+
+.box-img:hover{
+    transform: scale(1.3,1.3);
+}
+
+.producto--img{
+    height: inherit;
+}
+
+.producto--datos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-height: inherit;
+}
+
+.producto--datos h3{
+    margin-bottom: 0;
+}
+
+.producto--nombre{
+    font-size: 1em;
+    text-align: center;
+    max-height: 2em;
+    font-size: medium;
+
+    line-height: 1em;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    max-height: inherit;
+}
+
+.coffee-header1{
+    background-size: contain;
+    background-image: url(../assets/img/fotos/Foto1.jpeg);
+}
