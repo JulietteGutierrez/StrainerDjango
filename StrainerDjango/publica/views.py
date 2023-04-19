@@ -7,7 +7,10 @@ def index(request):
     return render(request, 'publica/index.html')
 
 def origenes(request):    
-    return render(request, 'publica/origenes.html')
+    return render(request,'publica/origenes.html')
+
+def sucursales(request):    
+    return render(request,'publica/sucursales.html')
 
 def tienda(request):    
     return render(request, 'publica/tienda.html', getContextoTienda())
