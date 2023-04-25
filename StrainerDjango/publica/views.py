@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 
+from publica.forms import ContactoForm
+
 # Create your views here.
 def index(request):    
     return render(request, 'publica/index.html')
@@ -11,6 +13,23 @@ def origenes(request):
 
 def sucursales(request):    
     return render(request,'publica/sucursales.html')
+
+def contacto(request):
+    # mensaje=None
+    if(request.method=='POST'):
+        contacto_form = ContactoForm(request.POST)    
+        # mensaje='Hemos recibido tus datos'
+        # acción para tomar los datos del formulario
+        if(contacto_form.is_valid()):  
+            messages.success(request,'Hemos recibido tus datos')          
+        # acción para tomar los datos del formulario
+        else:
+            messages.warning(request,'Por favor revisa los errores en el formulario')
+    else:
+        #Cuando recibo el formulario por el metodo GET (cuando cargo la pagina)
+        #Creo un formulario vacio
+        contacto_form = ContactoForm()
+    return render(request,'publica/contacto.html')
 
 def tienda(request):    
     return render(request, 'publica/tienda.html', getContextoTienda())
