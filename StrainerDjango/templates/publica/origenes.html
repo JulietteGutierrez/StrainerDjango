@@ -10,11 +10,11 @@
 {% endblock css %}
 
 {% block menu %}
-<li><a href="../">Inicio</a></li>
-<li><a href="./" class="lnkactive">Orígenes</a></li>
-<li><a href="../tienda">Tienda Online</a></li>
-<li><a href="../sucursales">Dónde encontrarnos</a></li>
-<li><a href="../contacto">Contacto</a></li>
+<li><a href="{% url 'inicio' %}">Inicio</a></li>
+<li><a href="{% url 'origenes' %}" class="lnkactive">Orígenes</a></li>
+<li><a href="{% url 'tienda' %}">Tienda Online</a></li>
+<li><a href="{% url 'sucursales' %}">Dónde encontrarnos</a></li>
+<li><a href="{% url 'contacto' %}">Contacto</a></li>
 {% endblock %}
 
 {% block title2 %}Orígenes{% endblock title2 %}

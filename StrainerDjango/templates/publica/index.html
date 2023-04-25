@@ -8,11 +8,11 @@
 {% endblock css %}
 
 {% block menu %}
-<li><a href="./" class="lnkactive">Inicio</a></li>
-<li><a href="./origenes">Orígenes</a></li>
-<li><a href="./tienda">Tienda Online</a></li>
-<li><a href="./sucursales">Dónde encontrarnos</a></li>
-<li><a href="./contacto">Contacto</a></li>
+<li><a href="{% url 'inicio' %}" class="lnkactive">Inicio</a></li>
+<li><a href="{% url 'origenes' %}">Orígenes</a></li>
+<li><a href="{% url 'tienda' %}">Tienda Online</a></li>
+<li><a href="{% url 'sucursales' %}">Dónde encontrarnos</a></li>
+<li><a href="{% url 'contacto' %}">Contacto</a></li>
 {% endblock %}
 
 {% block title2 %}Strainer Coffee{% endblock title2 %}
