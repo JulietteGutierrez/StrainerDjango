@@ -1,0 +1,34 @@
+{% extends './base.html' %}
+{%load static %}
+
+{% block titulo %}Producto{% endblock titulo %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'publica/css/tienda.css'%}?v={% now 'U' %}">
+{% endblock css %}
+
+{% block menu %}
+<li><a href="{% url 'inicio' %}">Inicio</a></li>
+<li><a href="{% url 'origenes' %}">Orígenes</a></li>
+<li><a href="{% url 'tienda' %}" class="lnkactive">Tienda Online</a></li>
+<li><a href="{% url 'sucursales' %}">Dónde encontrarnos</a></li>
+<li><a href="{% url 'contacto' %}">Contacto</a></li>
+{% endblock %}
+
+{% block title2 %}{{producto.nombre}}{% endblock title2 %}
+{% block subtitle %}{{producto.categoria}}{% endblock subtitle %}
+{% block contenido %}
+<br>
+<div class="producto--datos">
+    <div class="box-img"> 
+        <img class="producto--img" src="{% static 'publica/assets/img/productos/' %}{{producto.imagen}}">
+    </div> 
+    <h3 class="producto--nombre">{{producto.descripcion}}</h3>
+    <p>${{producto.precio|floatformat:"2g"}}</p>
+{% comment %} 
+    <a href="../carrito/{{producto.id}}/-1">-</a>
+    <a href="../carrito/{{producto.id}}/1">+</a>
+{% endcomment %}
+</div>
+<br>
+{% endblock contenido %}

@@ -1,0 +1,25 @@
+{% extends './base.html' %}
+{%load static %}
+
+{% block titulo %}Contacto{% endblock titulo %}
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'publica/css/contacto.css'%}?v={% now 'U' %}">
+
+{% endblock css %}
+
+{% block menu %}
+<li><a href="{% url 'inicio' %}">Inicio</a></li>
+<li><a href="{% url 'origenes' %}">Orígenes</a></li>
+<li><a href="{% url 'tienda-online' %}">Tienda Online</a></li>
+<li><a href="{% url 'sucursales' %}">Dónde encontrarnos</a></li>
+<li><a href="{% url 'contacto' %}" class="lnkactive">Contacto</a></li>
+{% endblock %}
+
+{% block title2 %}Contactanos{% endblock title2 %}
+{% block subtitle %}Envianos tus consultas{% endblock subtitle %}
+
+{% block contenido %}
+
+  
+{% endblock contenido %}
