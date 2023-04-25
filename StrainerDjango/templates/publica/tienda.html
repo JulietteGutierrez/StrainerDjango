@@ -8,11 +8,11 @@
 {% endblock css %}
 
 {% block menu %}
-    <li><a href="../index">Inicio</a></li>
-    <li><a href="../origenes">Orígenes</a></li>
-    <li><a href="./" class="lnkactive">Tienda Online</a></li>
-    <li><a href="../sucursales">Dónde encontrarnos</a></li>
-    <li><a href="../contacto">Contacto</a></li>
+<li><a href="{% url 'inicio' %}">Inicio</a></li>
+<li><a href="{% url 'origenes' %}">Orígenes</a></li>
+<li><a href="{% url 'tienda' %}" class="lnkactive">Tienda Online</a></li>
+<li><a href="{% url 'sucursales' %}">Dónde encontrarnos</a></li>
+<li><a href="{% url 'contacto' %}">Contacto</a></li>
 {% endblock %}
 
 {% block title2 %}Nuestros Productos{% endblock title2 %}
@@ -37,10 +37,7 @@
         <section class="content">
             <div id="contenedor-productos" class="contenedor-productos">
                 {% for producto in productos %}
-                    <article id="{{producto.id}}" class="producto">
-{% comment %} 
-                        <a href="../producto/{{producto.id}}">
-{% endcomment %}
+                    <a href="./producto/{{producto.id}}" class="producto">
                             <div class="box-img">
                                 <img class="producto--img" src="{% static 'publica/assets/img/productos/' %}{{producto.imagen}}">
                             </div>
@@ -48,10 +45,7 @@
                                 <h3 class="producto--nombre">{{producto.nombre}}</h3>
                                 <p>${{producto.precio|floatformat:"2g"}}</p>
                             </div>
-{% comment %}
-                        <a>
-{% endcomment %}
-                    </article>
+                    </a>
                 {% endfor %}              
             </div>
         </section>
