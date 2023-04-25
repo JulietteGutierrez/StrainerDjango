@@ -14,6 +14,8 @@ header{
         --color-primario: #E99F24;
         --color-secundario: black;
         --color-terciario: #405D51;
+
+        --navbar-shallow-color: #e5e5e5;
     }
 
     .top-nav{

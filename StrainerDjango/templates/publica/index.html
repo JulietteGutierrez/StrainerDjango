@@ -1,19 +1,15 @@
-{% extends './base.html' %}
+{% extends './base.html' %} 
+
 {%load static %}
+{% comment %} {% load active_link_tags %} {% endcomment %}
 
 {% block titulo %}Strainer Coffee{% endblock titulo %}
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'publica/css/principal.css'%}?v={% now 'U' %}">
+<link rel="stylesheet" href="{% static 'publica/css/styles.css'  %}?v={% now 'U' %}"/>
 {% endblock css %}
 
-{% block menu %}
-<li><a href="./" class="lnkactive">Inicio</a></li>
-<li><a href="./origenes">Orígenes</a></li>
-<li><a href="./tienda">Tienda Online</a></li>
-<li><a href="./sucursales">Dónde encontrarnos</a></li>
-<li><a href="./contacto">Contacto</a></li>
-{% endblock %}
 
 {% block title2 %}Strainer Coffee{% endblock title2 %}
 {% block subtitle %}A new way of drinking coffee{% endblock subtitle %}

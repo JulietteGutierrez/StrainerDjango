@@ -1,4 +1,5 @@
-{% extends './base.html' %}
+{% extends './base.html' %} 
+
 {%load static %}
 
 {% block titulo %}Orígenes{% endblock titulo %}
@@ -8,14 +9,6 @@
 <link rel="stylesheet" href="{% static 'publica/css/origenes.css'%}?v={% now 'U' %}">
 
 {% endblock css %}
-
-{% block menu %}
-<li><a href="../">Inicio</a></li>
-<li><a href="./" class="lnkactive">Orígenes</a></li>
-<li><a href="../tienda">Tienda Online</a></li>
-<li><a href="../sucursales">Dónde encontrarnos</a></li>
-<li><a href="../contacto">Contacto</a></li>
-{% endblock %}
 
 {% block title2 %}Orígenes{% endblock title2 %}
 {% block subtitle %}Nuestros blends{% endblock subtitle %}

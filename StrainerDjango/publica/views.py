@@ -2,23 +2,40 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 
+
 # Create your views here.
-def index(request):    
-    return render(request, 'publica/index.html')
 
-def origenes(request):    
-    return render(request,'publica/origenes.html')
 
-def sucursales(request):    
-    return render(request,'publica/sucursales.html')
+def index(request):
+    context = {"index": "active"}
+    return render(request, 'publica/index.html', context)
+
+def origenes(request):
+    context = {"origenes": "active"}
+    return render(request, 'publica/origenes.html', context)
+
 
 def tienda(request):    
-    return render(request, 'publica/tienda.html', getContextoTienda())
+     context = {"tienda": "active"}
+     return render(request, 'publica/tienda.html', context)
+
+def sucursales(request):    
+    context = {"sucursales": "active"}
+    return render(request,'publica/sucursales.html', context)
+
+# def contacto(request):    
+#     context = {"contacto": "active"}
+#     return render(request,'publica/contacto.html', context)
+
+
+def tienda(request):  
+    return render(request, 'publica/tienda.html',getContextoTienda())
 
 def getContextoTienda():
     return {
         "categorias": getDictCategorias(),
         "productos": getDictProductos(),
+        "tienda": "active"
     } 
 
 #########################################################################
