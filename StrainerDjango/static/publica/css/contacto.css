@@ -1,8 +1,9 @@
-@import url('../css/styles.css' );
+/*@import url('../css/styles.css' ); 
 
 main{
     overflow-x: hidden;
 }
+*/
 
 .card{
     padding: 30px 40px;
@@ -64,6 +65,20 @@ span .text-danger{
     border: 0;
 }
 
+
+
+.btn-strainer:hover{
+    animation: shadow-pulse 1000ms 1;
+    background-color: #20e2d7;
+    color: #434343;
+}
+
+.errorlist{
+    color: red;
+    font-size:larger;
+}
+
+/*
 @media only screen and (min-width: 768px) {
 
     nav.top-nav .menu-label {
@@ -79,14 +94,4 @@ span .text-danger{
       box-shadow: 0 0 8px 16px rgba(32, 226, 215, 0);
     }
   }
-
-.btn-strainer:hover{
-    animation: shadow-pulse 1000ms 1;
-    background-color: #20e2d7;
-    color: #434343;
-}
-
-.errorlist{
-    color: red;
-    font-size:larger;
-}
+  */
