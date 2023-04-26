@@ -26,6 +26,10 @@ def sucursales(request):
     context = {"sucursales": "active"}
     return render(request,'publica/sucursales.html', context)
 
+def contacto(request):    
+    context = {"contacto": "active"}
+    return render(request,'publica/contacto.html', context)    
+
 def contacto(request):
     # mensaje=None
     if(request.method=='POST'):
@@ -43,7 +47,8 @@ def contacto(request):
         contacto_form = ContactoForm()
 
     context = {
-        'contacto_form': contacto_form
+        'contacto_form': contacto_form,
+        "contacto":"active"
     }
     return render(request,'publica/contacto.html',context)
 

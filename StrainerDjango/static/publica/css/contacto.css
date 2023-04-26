@@ -46,7 +46,7 @@ button:focus{
 }
 label, h2{
     font-family: gothambold;
-    color: aliceblue;
+    /* color: aliceblue; */
 }
 span .text-danger{
     color: red;
