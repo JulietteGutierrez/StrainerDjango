@@ -7,13 +7,6 @@
     <link rel="stylesheet" href="{% static 'publica/css/tienda.css'%}?v={% now 'U' %}">
 {% endblock css %}
 
-{% block menu %}
-<li><a href="{% url 'inicio' %}">Inicio</a></li>
-<li><a href="{% url 'origenes' %}">Orígenes</a></li>
-<li><a href="{% url 'tienda' %}" class="lnkactive">Tienda Online</a></li>
-<li><a href="{% url 'sucursales' %}">Dónde encontrarnos</a></li>
-<li><a href="{% url 'contacto' %}">Contacto</a></li>
-{% endblock %}
 
 {% block title2 %}{{producto.nombre}}{% endblock title2 %}
 {% block subtitle %}{{producto.categoria}}{% endblock subtitle %}

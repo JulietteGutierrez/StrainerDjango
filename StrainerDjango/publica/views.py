@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 
+from publica.forms import ContactoForm
+
 from django.contrib import messages
 
 # Create your views here.
