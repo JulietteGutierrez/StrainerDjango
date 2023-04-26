@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 
 from publica.forms import ContactoForm
+from django.contrib import messages
 
 # Create your views here.
 def index(request):    
@@ -29,10 +30,11 @@ def contacto(request):
         #Cuando recibo el formulario por el metodo GET (cuando cargo la pagina)
         #Creo un formulario vacio
         contacto_form = ContactoForm()
-    return render(request,'publica/contacto.html')
 
-def contacto(request):    
-    return render(request, 'publica/index.html')
+    context = {
+        'contacto_form': contacto_form
+    }
+    return render(request,'publica/contacto.html',context)
 
 def tienda(request):    
     return render(request, 'publica/tienda.html', getContextoTienda())

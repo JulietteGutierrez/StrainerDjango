@@ -57,12 +57,6 @@ class ContactoForm(forms.Form):
         max_length=500,
         widget=forms.Textarea(attrs={'rows': 5,'class':'form-control'})
     )
-    tipo_consulta = forms.ChoiceField(
-        label='Tipo de consulta',
-        #choices=TIPO_CONSULTA,
-        #initial='2',
-        widget=forms.Select(attrs={'class':'form-control'})
-    )
     def clean_mensaje(self):
         data = self.cleaned_data['mensaje']
         if len(data) < 10:

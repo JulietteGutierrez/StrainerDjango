@@ -1,25 +1,89 @@
 {% extends './base.html' %}
-{%load static %}
+{% load static %}
 
-{% block titulo %}Contacto{% endblock titulo %}
+{% block titulo %} Contacto {% endblock titulo %}
 {% block css %}
 
 <link rel="stylesheet" href="{% static 'publica/css/contacto.css'%}?v={% now 'U' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 {% endblock css %}
 
 {% block menu %}
-<li><a href="{% url 'inicio' %}">Inicio</a></li>
-<li><a href="{% url 'origenes' %}">Orígenes</a></li>
-<li><a href="{% url 'tienda-online' %}">Tienda Online</a></li>
-<li><a href="{% url 'sucursales' %}">Dónde encontrarnos</a></li>
-<li><a href="{% url 'contacto' %}" class="lnkactive">Contacto</a></li>
+<li><a href="{% url 'inicio'        %}"                     >Inicio</a></li>
+<li><a href="{% url 'origenes'      %}"                     >Orígenes</a></li>
+<li><a href="{% url 'tienda'        %}"                     >Tienda Online</a></li>
+<li><a href="{% url 'sucursales'    %}"                     >Dónde encontrarnos</a></li>
+<li><a href="{% url 'contacto'      %}" class="lnkactive"   >Contacto</a></li>
 {% endblock %}
 
-{% block title2 %}Contactanos{% endblock title2 %}
-{% block subtitle %}Envianos tus consultas{% endblock subtitle %}
+{% block title2 %} Contactanos {% endblock title2 %}
+{% block subtitle %}  {% endblock subtitle %}
 
 {% block contenido %}
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <div class="card">
+                <h2 class="text-center mb-4">Envíanos tu consulta</h5>
+                    {% comment %}
+                    <form name="strainercoffee" id="strainercoffee" class="form-card" onsubmit="javascript: return validate(0);" action="https://formspree.io/f/mbjbaawg" method="post">
+                    
+                        {% endcomment %}
+                    <form name="contact_form" id="contact-form" class="form-card"  action="{% url 'contacto' %}"  method="POST" novalidate>
+                        
+                        {% csrf_token %}
+                        
+                        {% comment %}
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nombre<span class="text-danger"> *</span></label> <input type="text" id="fnombre" name="fnombre" placeholder="" onblur="validate(1)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Apellido<span class="text-danger"> </span></label> <input type="text" id="fapellido" name="fapellido" placeholder="" onblur="validate(2)"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Email<span class="text-danger"> *</span></label> <input type="text" id="femail" name="femail" placeholder="" onblur="validate(3)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Tel/Cel<span class="text-danger"></span></label> <input type="number" id="ftel" name="ftel" placeholder="" onblur="validate(4)"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-12 flex-column d-flex"> <label class="form-control-label px-3">Asunto<span class="text-danger"> *</span></label> <input type="text" id="fasunto" name="fasunto" placeholder="" onblur="validate(5)"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">Consulta/Mensaje<span class="text-danger"> *</span></label> <textarea id="fmensaje" name="fmensaje" placeholder="" onblur="validate(6)"> </textarea> </div>
+                    </div>
+                    <div class="row  justify-content-between">
+                        <div class="form-group col-sm-12 flex-column d-flex"> <button type="submit" class="btn-block btn-primary btn-strainer ">Enviar consulta</button> </div>
+                    </div>
+                    {% endcomment %}
 
+                    
+                        {% for campo in contacto_form %}
+                        <!--Grid column-->
+                            <label for="name" class="form-label">{{ campo.label }}</label>
+                                <div class="row justify-content-between text-left">
+                                    {{campo}}
+                                </div>
+                                {% comment %} 
+                                {% if campo.field.widget.input_type == 'checkbox' %}
+                                    {{campo}} 
+                                    <label for="name" class="">{{ campo.label }}</label>
+                                {% else %}
+                                    <label for="name" class="">{{ campo.label }}</label>
+                                    {{campo}}
+                                {% endif %} {% endcomment %}                           
+                            <div >{{campo.errors}}</div>
+                        
+                        <!--Grid column-->
+                        {% endfor %}
+                    </div>
+                    <div class="row  justify-content-between">
+                        <div class="form-group col-sm-12 flex-column d-flex"> <button type="submit" class="btn-block btn-primary btn-strainer ">Enviar consulta</button> </div>
+                    </div>    
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<aside></aside>-->
   
 {% endblock contenido %}
