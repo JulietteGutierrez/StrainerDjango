@@ -85,3 +85,8 @@ span .text-danger{
     background-color: #20e2d7;
     color: #434343;
 }
+
+.errorlist{
+    color: red;
+    font-size:larger;
+}
