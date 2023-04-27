@@ -8,7 +8,6 @@ from django.contrib import messages
 
 # Create your views here.
 
-
 def index(request):
     context = {"index": "active"}
     return render(request, 'publica/index.html', context)
@@ -16,11 +15,6 @@ def index(request):
 def origenes(request):
     context = {"origenes": "active"}
     return render(request, 'publica/origenes.html', context)
-
-
-def tienda(request):    
-     context = {"tienda": "active"}
-     return render(request, 'publica/tienda.html', context)
 
 def sucursales(request):    
     context = {"sucursales": "active"}
@@ -52,7 +46,7 @@ def contacto(request):
     }
     return render(request,'publica/contacto.html',context)
 
-def tienda(request):  
+def tienda(request):
     return render(request, 'publica/tienda.html',getContextoTienda())
 
 def getContextoTienda():
@@ -68,6 +62,7 @@ def tiendaProducto(request, id):
 def getContextoProducto(id):
     return {
         "producto": getDictProducto(id),
+        "tienda": "active"
     } 
 
 # def tiendaCarritoAgregar(request, id, cantidad=0):
