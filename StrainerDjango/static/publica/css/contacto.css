@@ -94,3 +94,8 @@ span .text-danger{
       box-shadow: 0 0 8px 16px rgba(32, 226, 215, 0);
     }
   }
+
+
+  .text-center{
+    color: white;
+}
