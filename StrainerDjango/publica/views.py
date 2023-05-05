@@ -1,10 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
-
-from publica.forms import ContactoForm
-
 from django.contrib import messages
+from publica.forms import ContactoForm
 
 # Create your views here.
 
@@ -47,12 +45,19 @@ def contacto(request):
     return render(request,'publica/contacto.html',context)
 
 def tienda(request):
-    return render(request, 'publica/tienda.html',getContextoTienda())
+    filtroCategoria=request.GET.get("filtro_categoria", 0)
+    if filtroCategoria == "": filtroCategoria=0
+    filtroCategoria=int(filtroCategoria)
+    filtroNombre=request.GET.get("filtro_nombre", "")
+    return render(request, 'publica/tienda.html', 
+                  getContextoTienda(filtroCategoria, filtroNombre))
 
-def getContextoTienda():
+def getContextoTienda(filtroCategoria=0, filtroNombre=""):
     return {
-        "categorias": getDictCategorias(),
-        "productos": getDictProductos(),
+        "categorias": getDictCategorias(filtroCategoria),
+        "filtroPorCategoria": (filtroCategoria!=0),
+        "filtroPorNombre": filtroNombre,
+        "productos": getDictProductos(filtroCategoria, filtroNombre),
         "tienda": "active"
     } 
 
@@ -65,8 +70,11 @@ def getContextoProducto(id):
         "tienda": "active"
     } 
 
-# def tiendaCarritoAgregar(request, id, cantidad=0):
-#     return tienda(request)
+def tiendaCarritoAgregar(request, id, cantidad=0):
+    # Aca llega el id y la cantidad a agregar y hay que codificar el carrito. Por ahora lo vuelvo a mandar a la tienda
+    contexto = getContextoTienda(0, "")
+    contexto['mensaje_provisorio'] = f'Se ha agregado {cantidad} item del Producto:{id}'
+    return redirect('../../', contexto)
 
 #########################################################################
 #                                                                       #
@@ -74,10 +82,13 @@ def getContextoProducto(id):
 #                                                                       #
 #########################################################################
 
-def getDictCategorias():
+def getDictCategorias(filtroCategoria=0):
     selectDistinctCategoriasFromProductos = []
     for n in range(1, 6):
-        selectDistinctCategoriasFromProductos.append(formatDictCategoria(n))
+        categoria = formatDictCategoria(n)
+        if n == filtroCategoria:
+            categoria["selected"] = "selected"
+        selectDistinctCategoriasFromProductos.append(categoria)
     return selectDistinctCategoriasFromProductos
 
 def formatDictCategoria(id):
@@ -90,10 +101,13 @@ def getCategoria(id):
     else:
         return "*** ERROR ***"
 
-def getDictProductos():
+def getDictProductos(filtroCategoria, filtroNombre):
     selectProductosFromProductosYCategorias = []
-    for id in range(1,14):
-        selectProductosFromProductosYCategorias.append(getDictProducto(id))
+    for id in range(1,14):        
+        producto = getDictProducto(id)
+        if filtroCategoria == 0 or filtroCategoria == producto["id_categoria"]:
+            if filtroNombre in producto["nombre"].lower():
+                selectProductosFromProductosYCategorias.append(producto)
     return selectProductosFromProductosYCategorias
 
 def getDictProducto(id):

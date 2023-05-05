@@ -14,18 +14,36 @@
     <br>
     <div class="with-sidebar">
         <section class="contenedor-filtros">
-            <form onsubmit="return false;">
+            <form name="filter_form" id="filter_form" action="{% url 'tienda-online' %}">
                 <label for="filtro_nombre">Buscar</label>
-                <input name=filtro_nombre id="filtro_nombre" type="search" placeholder="Nombre Producto...">
+                <input name="filtro_nombre" id="filtro_nombre" type="search" 
+                        {% if filtroPorNombre == "" %}
+                            placeholder="Nombre Producto..." 
+                        {% else %}            
+                            value={{filtroPorNombre}} 
+                        {% endif %}
+                        onchange="this.form.submit()">
                 <br>
                 <label for="filtro_categoria">Categoría</label>
-                <select name="filtro_categoria" id="filtro_categoria">
-                    <option selected value="Todas">Todas</option>
+                <select name="filtro_categoria" id="filtro_categoria" onchange="this.form.submit()">
+                    {% if filtroPorCategoria %}
+                        <option value="">Todas</option>
+                    {% else %}
+                        <option selected value="">Todas</option>
+                    {% endif %}
                     {% for categoria in categorias %}
-                        <option value="{{categoria.id}}">{{categoria.categoria}}</option>
+                        <option value="{{categoria.id}}" {{categoria.selected}}>{{categoria.categoria}}</option>
                     {% endfor %}              
                 </select>
+                <button type="submit" class="btn-strainer mx-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                      </svg>
+                </button>
             </form>
+        </section>
+        <section class="contenedor-carrito">
+            <p>{{mensaje_provisorio}}</p>
         </section>
         <section class="content">
             <div id="contenedor-productos" class="contenedor-productos">
@@ -44,5 +62,4 @@
         </section>
     </div>
     <!--<aside></aside>-->
-    {% comment %} <script type="module" src="{% static 'publica/js/tienda.js' %}"></script> {% endcomment %}
 {% endblock contenido %}
