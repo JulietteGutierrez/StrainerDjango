@@ -3,31 +3,10 @@
 .with-sidebar{
     margin: 0 1em;
     display: grid;
-    grid-template-areas: "filtros content"
-                         "carrito content";
+    grid-template-areas: "carrito content";
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 3fr;
     margin-right: 0; /*Esto esta para que la scroll bar quede pegada al borde derecho.
     Ante cualquier problema relacionado, sacar*/
-}
-
-.contenedor-filtros{
-    grid-area: filtros;
-}
-
-.btn-strainer{
-    background-color: #f0a046;
-    color: white;
-    padding: 5px 8px 0px;
-    border-radius: 5px !important;
-    box-sizing: border-box;
-    border: 0;
-}
-
-.btn-strainer:hover{
-    animation: shadow-pulse 1000ms 1;
-    background-color: #20e2d7;
-    color: #434343;
 }
 
 /************************* Grilla Carrito **********************/
@@ -64,8 +43,8 @@
 }
 
 .box-img{
-    height: 6.25em;
-    width: 6.25em;
+    height: 12.5em;
+    width: 12.5em;
     border-radius: 100%;
     object-fit: contain;
     overflow: hidden;
@@ -95,16 +74,40 @@
 }
 
 .producto--nombre{
-    font-size: 1em;
     text-align: center;
     max-height: 2em;
     font-size: medium;
-
-    line-height: 1em;
+    line-height: 1.5em;
     word-wrap: break-word;
     text-overflow: ellipsis;
     max-height: inherit;
+    margin: 0% 10%;
 }
+
+.producto--precio{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1px;
+    text-overflow: ellipsis;
+    max-height: inherit;
+    margin: 0% 10%;
+}
+
+.btn-strainer{
+    background-color: #f0a046;
+    color: white;
+    padding: 5px 8px 0px;
+    border-radius: 5px !important;
+    box-sizing: border-box;
+    border: 0;
+}
+
+.btn-strainer:hover{
+    animation: shadow-pulse 1000ms 1;
+    background-color: #20e2d7;
+    color: #434343;
+}
+
 
 /************************* Seteos Responsive **********************/
 
@@ -120,10 +123,3 @@
         justify-content: center;
     }
 }
-
-
- /*
-.coffee-header1{
-    background-size: contain;
-   background-image: url(../assets/img/fotos/Foto1.jpeg); 
-}*/
