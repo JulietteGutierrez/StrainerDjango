@@ -63,7 +63,7 @@ def agregar_producto(request, producto_id):
     carrito=Carrito(request)
     producto=Producto.objects.get(id=producto_id)
     carrito.agregar(producto=producto)
-    return redirect("publica/tienda") #Era prueba
+    return redirect("tienda") #Era prueba
 
 def eliminar_producto(request, producto_id):
     carrito=Carrito(request)

@@ -9,7 +9,7 @@ urlpatterns = [
     path('sucursales/',views.sucursales,name='sucursales'),
     path('contacto/',views.contacto,name='contacto'),  
     path('tienda/',views.tienda,name='tienda'),
-    path('tienda/agregar/<int:id>', views.agregar_producto, name='agregar'),
+    path('agregar/<int:producto_id>/', views.agregar_producto, name='agregar'),
 
     # path('tienda-online/producto/<int:id>', views.tiendaProducto, name='producto'),
     # path('tienda-online/carrito/<int:id>/<int:cantidad>', views.tiendaCarritoAgregar, name='carrito'),
