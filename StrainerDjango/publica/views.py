@@ -75,7 +75,7 @@ def restar_producto(request, producto_id):
     carrito=Carrito(request)
     producto=Producto.objects.get(id=producto_id)
     carrito.restar_producto(producto=producto)
-    return redirect("publica/tienda")
+    return redirect("tienda")
 
 def limpiar_carrito(request, producto_id):
     carrito= Carrito(request)

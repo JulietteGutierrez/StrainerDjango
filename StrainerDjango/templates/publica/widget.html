@@ -21,6 +21,10 @@
                     {{value.cantidad}}
                 </td>
                 <td>
+                    <a href="{% url 'agregar' value.producto_id %}" class="btn btn-sm btn-success">+</a>
+                    <a href="{% url 'restar' value.producto_id %}" class="btn btn-sm btn-success">-</a>
+                </td>
+                <td>
                   {% comment %} <a href="{% url 'agregar' producto.id %}" class="btn btn-success"> + </a> 
                     <a href="{% url 'restar' producto.id %}" class="btn btn-success"> - </a><br/>  {% endcomment %}
                     ${{value.precio}}

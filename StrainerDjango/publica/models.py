@@ -19,7 +19,7 @@ class Producto(models.Model):
     categoria=models.ForeignKey(Categoria, on_delete=models.CASCADE)
     imagen=models.ImageField(upload_to="imagenes")
     disponibilidad=models.BooleanField(default=True)
-    precio=models.DecimalField(default=0.00, max_digits=8, decimal_places=2)
+    precio=models.FloatField()
 
     class Meta:
         verbose_name="producto"
