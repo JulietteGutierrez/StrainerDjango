@@ -20,9 +20,7 @@ def sucursales(request):
     context = {"sucursales": "active"}
     return render(request,'publica/sucursales.html', context)
 
-def contacto(request):    
-    context = {"contacto": "active"}
-    return render(request,'publica/contacto.html', context)    
+  
 
 def contacto(request):
     # mensaje=None
@@ -51,6 +49,7 @@ def tienda(request):
     template= loader.get_template('publica/tienda.html')
     context = {
         'prod' : producto,
+        "tienda": "active",
          }
 
     # return render(request, "publica/prueba.html", {"producto":producto})
