@@ -11,7 +11,7 @@
 {% block title2 %}Nuestros Productos{% endblock title2 %}
 {% block subtitle %}¡Date un gusto!{% endblock subtitle %}
 {% block contenido %}
-    <br>
+    {% comment %} <br>
     <div class="with-sidebar">
         <section class="contenedor-filtros">
             <form name="filter_form" id="filter_form" action="{% url 'tienda-online' %}">
@@ -60,6 +60,32 @@
                 {% endfor %}              
             </div>
         </section>
-    </div>
+    </div> {% endcomment %}
     <!--<aside></aside>-->
+
+
+    <div class="container">
+        <div style="float:right">
+            {% include "publica/widget.html" %}
+        </div>
+    
+        <div class="row"> 
+    
+    {% for producto in prod %}
+    <div class="col-md-3" >   
+        <div class="card-body" >
+            <img src="{{producto.imagen.url}}" class="card-img-top">
+            <h5 class="card-title"> {{producto.nombre }} </h5>
+            <h6 class="card.text">{{producto.precio}}</h6>
+            
+        </div>
+        <div class="card-footer text-center">
+            <a href="{% url 'agregar' producto.id %}" class="btn btn-success">Agregar al carrito</a>   
+        </div>
+     
+    </div>
+    {% endfor %} 
+        
+    
+    </div>
 {% endblock contenido %}
