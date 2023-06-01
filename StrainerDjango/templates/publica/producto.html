@@ -4,7 +4,7 @@
 {% block titulo %}Producto{% endblock titulo %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'publica/css/producto.css'%}?v={% now 'U' %}">
+  <link rel="stylesheet" href="{% static 'publica/css/producto.css'%}?v={% now 'U' %}">
 {% endblock css %}
 
 
@@ -13,40 +13,44 @@
 {% block contenido %}
 <br>
 <div class="with-sidebar">
-    {% comment %} <section class="contenedor-filtros">
-    </section> {% endcomment %}
-    <section class="contenedor-carrito">
-    </section>
-    <section class="content">
-        <div class="producto--datos">
-            <div class="box-img"> 
-                <img class="producto--img" src="{% static 'publica/assets/img/productos/' %}{{producto.imagen}}">
-            </div> 
-            <h3 class="producto--nombre">{{producto.descripcion}}</h3>
-            {% comment %} <br> {% endcomment %}
-            <div class="row">
-                <div class="col">
-                    <h2 class="producto--precio">${{producto.precio|floatformat:"2g"}}</h2>
-                <a href="../carrito/{{producto.id}}/1" class="producto">
-                    <button type="submit" class="btn-strainer mx-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
-                            <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
-                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                        </svg>
-                    </button>
-                </a>                
-{% comment %}
-                 <form name="product_add_form" id="product_add_form" action="{% url 'producto' %}/{{producto.id}}"> 
-                </form>
-{% endcomment %}
-</div>
-</div>
+  <section class="contenedor-carrito">
+    {% include "publica/widget.html" %}
+  </section>
+  <section class="content">
+    <div class="producto--datos">
+      <div class="box-img"> 
+        <img class="producto--img" src="{% static 'publica/assets/img/productos/' %}{{producto.imagen}}">
+      </div> 
+      <h3 class="producto--nombre">{{producto.descripcion}}</h3>
+      <div class="row">
+        <div class="col">
+          <h2 class="producto--precio">${{producto.precio|floatformat:"2g"}}</h2>
+          <a href="{% url 'agregar' producto.id %}" class="btn">
+            <button type="submit" class="btn-strainer mx-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+              </svg>
+            </button>
+          </a>
 {% comment %} 
-                <a href="../carrito/{{producto.id}}/-1">-</a>
-                <a href="../carrito/{{producto.id}}/1">+</a>
-            {% endcomment %}
+          <a href="../carrito/{{producto.id}}/1" class="producto">
+            <button type="submit" class="btn-strainer mx-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+              </svg>
+            </button>
+          </a>                
+{% endcomment %}
+{% comment %}
+          <form name="product_add_form" id="product_add_form" action="{% url 'producto' %}/{{producto.id}}"> 
+          </form>
+{% endcomment %}
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </div>
 <br>
 {% endblock contenido %}
