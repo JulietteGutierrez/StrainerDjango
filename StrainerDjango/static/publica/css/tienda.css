@@ -60,6 +60,9 @@
     background-color: #ffffff;
     border: solid #eaeaea 1px;
     color: #000;
+}
+
+.producto a{
     text-decoration: none;
 }
 

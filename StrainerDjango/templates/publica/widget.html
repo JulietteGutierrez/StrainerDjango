@@ -3,10 +3,9 @@
         <tr>
             <th colspan="3" class="text-center">
                 Carrito de compras
-    
             </th>
         </tr>
-        <th>producto</th>
+        <th>Producto</th>
         <th>Cantidad</th>
         <th>Suma</th>
     </thead>
@@ -25,24 +24,22 @@
                     <a href="{% url 'restar' value.producto_id %}" class="btn btn-sm btn-success">-</a>
                 </td>
                 <td>
-                  {% comment %} <a href="{% url 'agregar' producto.id %}" class="btn btn-success"> + </a> 
-                    <a href="{% url 'restar' producto.id %}" class="btn btn-success"> - </a><br/>  {% endcomment %}
+{% comment %}
+                <a href="{% url 'agregar' producto.id %}" class="btn btn-success"> + </a> 
+                <a href="{% url 'restar' producto.id %}" class="btn btn-success"> - </a>
+                <br/>
+{% endcomment %}
                     ${{value.precio}}
                 </td>
             </tr>
-    
-            
             {%endfor%}
         {% else %}
             <tr>
                 <td colspan="3">
                     <div class="alert alert-danger text-center">
-                    Sin productos
-    
+                        Sin productos
                     </div>
-    
                 </td>
-    
             </tr>
         {% endif %}
     </tbody>
@@ -50,10 +47,7 @@
         <tr>
             <td colspan="3">
                 Total: $ {{importe_total_carrito}}
-    
             </td>
         </tr>
     </tfoot>
-    
-    
-    </table>
+</table>

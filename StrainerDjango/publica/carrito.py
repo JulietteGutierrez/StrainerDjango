@@ -1,10 +1,10 @@
 class Carrito:
     def __init__(self, request):
-        self.request=request
-        self.session=request.session
-        carrito=self.session.get("carrito")
-        if not carrito:
-            carrito=self.session["carrito"]={}
+        # self.request=request
+        # self.session=request.session
+        # carrito=self.session.get("carrito")
+        # if not carrito:
+        #     carrito=self.session["carrito"]={}
         # else:
         self.carrito=carrito
 
