@@ -67,6 +67,10 @@ def tienda(request):
 def tiendaProducto(request, id):
     return render(request, 'publica/producto.html', getContextoProducto(id))
 
+def tiendaComprar(request):
+    # return render(request, 'publica/?????.html', getContextoCompra())
+    return redirect('.')
+
 def getContextoTienda(filtroCategoria=0, filtroNombre=""):
     if filtroCategoria==0 and filtroNombre=="":
         productos=Producto.objects.all()
