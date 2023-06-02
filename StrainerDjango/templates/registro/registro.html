@@ -1,0 +1,27 @@
+{% extends '../publica/base.html' %} 
+{% load static %}
+{% comment %} {% load crispy_forms_tags %}  {% endcomment %}
+{% block titulo %} Registro {% endblock titulo %}
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'publica/css/contacto.css'%}?v={% now 'U' %}"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+{% endblock css %}
+
+
+
+{% block contenido %}
+{% comment %} {% load crispy_forms_tags %}  {% endcomment %}
+
+<form method="post" action="">
+    {% csrf_token %}
+    <div class="contenedor">
+        {{ form }}
+
+    <input type="submit" class="btn btn-success"></button>
+    </div>
+</form>  
+
+{% endblock contenido %}

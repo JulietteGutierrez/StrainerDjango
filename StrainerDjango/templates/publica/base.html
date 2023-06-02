@@ -22,7 +22,6 @@
       crossorigin="anonymous"
     />
     {% endblock %}
-  
   </head>
   <body>
     <header class="header">
@@ -30,11 +29,21 @@
          {% include 'publica/navbar.html' %} 
         
         <section class="coffee-header1">
+          <div style="text-align:right; margin-right: 50px; color:white">
+            {% if user.is_authenticated %}
+              Hola {{user.username}} &nbsp; &nbsp;<a href="{% url 'cerrar_sesion'%}" style="color:white">Cerrar sesion</a>
+            {% else %}
+            <a href="{% url 'logear'%}" style="text-align:right; color:white">Login</a>&nbsp; &nbsp; <a href="{% url 'Autenticacion' %}" style="text-align:right; color:white">Registrate</a>
+            {% endif %}
+
+          </div>
         <div class="transbox1">
           <img
             class="index-logo1"
             src="{% static 'publica/assets/img/fotos/taza.jpeg'  %}"
           />
+
+
           <div class="contentfl">
             <h1>{% block title2 %}Strainer Coffee{% endblock title2 %}</h1>
             <h2>
