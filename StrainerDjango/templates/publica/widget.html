@@ -1,59 +1,70 @@
 <table class="table table-bordered">
-    <thead>
-        <tr>
-            <th colspan="3" class="text-center">
-                Carrito de compras
-    
-            </th>
-        </tr>
-        <th>producto</th>
-        <th>Cantidad</th>
-        <th>Suma</th>
-    </thead>
-    <tbody>
-        {% if request.session.carrito.items %}
-            {% for key, value in request.session.carrito.items %}
-            <tr>
-                <td>
-                    {{value.nombre}}
-                </td>
-                <td>
-                    {{value.cantidad}}
-                </td>
-                <td>
-                    <a href="{% url 'agregar' value.producto_id %}" class="btn btn-sm btn-success">+</a>
-                    <a href="{% url 'restar' value.producto_id %}" class="btn btn-sm btn-success">-</a>
-                </td>
-                <td>
-                  {% comment %} <a href="{% url 'agregar' producto.id %}" class="btn btn-success"> + </a> 
-                    <a href="{% url 'restar' producto.id %}" class="btn btn-success"> - </a><br/>  {% endcomment %}
-                    ${{value.precio}}
-                </td>
-            </tr>
-    
-            
-            {%endfor%}
-        {% else %}
-            <tr>
-                <td colspan="3">
-                    <div class="alert alert-danger text-center">
-                    Sin productos
-    
-                    </div>
-    
-                </td>
-    
-            </tr>
-        {% endif %}
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3">
-                Total: $ {{importe_total_carrito}}
-    
-            </td>
-        </tr>
-    </tfoot>
-    
-    
-    </table>
+  <thead>
+      <tr>
+          <th colspan="3" class="text-center">
+              Carrito de compras
+          </th>
+      </tr>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Suma</th>
+  </thead>
+  <tbody>
+      {% if request.session.carrito.items %}
+          {% for key, value in request.session.carrito.items %}
+          <tr>
+              <td>
+                  {{value.nombre}}
+              </td>
+              <td>
+                  {{value.cantidad}}
+              </td>
+              <td>
+                  <a href="{% url 'agregar' value.producto_id %}" class="btn btn-sm btn-success">+</a>
+                  <a href="{% url 'restar' value.producto_id %}" class="btn btn-sm btn-success">-</a>
+              </td>
+              <td>
+{% comment %}
+              <a href="{% url 'agregar' producto.id %}" class="btn btn-success"> + </a> 
+              <a href="{% url 'restar' producto.id %}" class="btn btn-success"> - </a>
+              <br/>
+{% endcomment %}
+                  ${{value.precio}}
+              </td>
+          </tr>
+          {%endfor%}
+      {% else %}
+          <tr>
+              <td colspan="3">
+                  <div class="alert alert-danger text-center">
+                      Sin productos
+                  </div>
+              </td>
+          </tr>
+      {% endif %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">
+        Total: $ {{importe_total_carrito}}
+      </td>
+    </tr>
+{% comment %}
+                  Pongo "not" en el if, solo para ver el botón hasta que ande el carrito 
+{% endcomment %}
+    {% if not request.session.carrito.items %}
+      <tr>
+        <td colspan="3">
+{% comment %} 
+          <a href="{% url 'comprar' %}">
+{% endcomment %}
+          <a href="{% url 'comprar' %}" style="text-decoration: none">
+            <div class="alert alert-primary text-center">
+              Finalizar Compra
+            </div>
+          </a>
+        </td>
+      </tr>
+    {% endif %}
+  </tfoot>
+</table>

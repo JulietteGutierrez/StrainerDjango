@@ -15,11 +15,11 @@ class Categoria(models.Model):
 
 class Producto(models.Model):
     nombre=models.CharField(max_length=50)
-    descripcion=models.CharField(max_length=50)
+    descripcion=models.CharField(max_length=900)
     categoria=models.ForeignKey(Categoria, on_delete=models.CASCADE)
     imagen=models.ImageField(upload_to="imagenes")
     disponibilidad=models.BooleanField(default=True)
-    precio=models.FloatField()
+    precio=models.FloatField(default=0)
 
     class Meta:
         verbose_name="producto"
