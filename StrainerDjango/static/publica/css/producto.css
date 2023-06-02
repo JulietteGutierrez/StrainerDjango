@@ -9,14 +9,6 @@
     Ante cualquier problema relacionado, sacar*/
 }
 
-/************************* Grilla Carrito **********************/
-
-.contenedor-carrito{
-    grid-area: carrito;
-    border: 1px dashed red;
-    /* background-color: red; */
-}
-
 /************************* Grilla Productos **********************/
 
 .content{
@@ -107,7 +99,6 @@
     background-color: #20e2d7;
     color: #434343;
 }
-
 
 /************************* Seteos Responsive **********************/
 

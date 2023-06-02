@@ -4,14 +4,13 @@
 {% block titulo %}Tienda{% endblock titulo %}
 
 {% block css %}
-  <link rel="stylesheet" href="{% static 'publica/css/tienda.css'%}?v={% now 'U' %}">
+<link rel="stylesheet" href="{% static 'publica/css/tienda.css'%}?v={% now 'U' %}">
+<link rel="stylesheet" href="{% static 'publica/css/carrito.css'%}?v={% now 'U' %}">
 {% endblock css %}
 
 {% block title2 %}Nuestros Productos{% endblock title2 %}
 {% block subtitle %}¡Date un gusto!{% endblock subtitle %}
 {% block contenido %}
-{% comment %}
-{% endcomment %}
   <br>
   <div class="with-sidebar">
     <section class="contenedor-filtros">
@@ -64,10 +63,6 @@
               </div>
             </a>
             <a href="{% url 'agregar' producto.id %}"
-{% comment %} 
-            class="btn btn-success">
-              Agregar al carrito
- {% endcomment %}
              class="btn">
               <button type="submit" class="btn-strainer mx-5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
@@ -81,29 +76,4 @@
       </div>
     </section>
   </div>
-{% comment %}
-{% endcomment %}
-{% comment %}
-
-<!--<aside></aside>-->
-  <div class="container">
-    <div style="float:right">
-      {% include "publica/widget.html" %}
-    </div>
-    <div class="row">
-      {% for producto in productos %}
-        <div class="col-md-3">
-          <div class="card-body">
-            <img src="{{producto.imagen.url}}" class="card-img-top">
-            <h5 class="card-title"> {{producto.nombre }} </h5>
-            <h6 class="card.text">{{producto.precio}}</h6>
-          </div>
-          <div class="card-footer text-center">
-            <a href="{% url 'agregar' producto.id %}" class="btn btn-success">Agregar al carrito</a>   
-          </div>
-        </div>
-      {% endfor %}    
-    </div>
-  </div>
-{% endcomment %}
 {% endblock contenido %}

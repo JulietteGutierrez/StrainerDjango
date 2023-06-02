@@ -8,7 +8,7 @@ class Carrito:
         self.carrito=carrito
 
     def agregar(self, producto):
-        if(str(producto.id)not in self.carrito.keys()):
+        if(str(producto.id) not in self.carrito.keys()):
             self.carrito[producto.id]={
                 "producto_id":producto.id,
                 "nombre":producto.nombre,
@@ -19,7 +19,7 @@ class Carrito:
         else:
             for key, value in self.carrito.items():
                 if key==str(producto.id):
-                    value["cantidad"]=value["cantidad"]+1
+                    value["cantidad"]=int(value["cantidad"])+1
                     value["precio"]=float(value["precio"])+producto.precio
                     break
         self.guardar_carrito()
@@ -37,7 +37,7 @@ class Carrito:
     def restar_producto(self, producto):
         for key, value in self.carrito.items():
             if key==str(producto.id):
-                value["cantidad"]=value["cantidad"]-1
+                value["cantidad"]=int(value["cantidad"])-1
                 value["precio"]=float(value["precio"])-producto.precio
                 if value["cantidad"]<1:
                     self.eliminar(producto)

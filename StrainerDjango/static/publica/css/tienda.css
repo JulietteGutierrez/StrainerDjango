@@ -6,7 +6,7 @@
     grid-template-areas: "filtros content"
                          "carrito content";
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 100fr;
+    grid-template-rows: 1fr 7fr;
     margin-right: 0; /*Esto esta para que la scroll bar quede pegada al borde derecho.
     Ante cualquier problema relacionado, sacar*/
 }
@@ -28,14 +28,6 @@
     animation: shadow-pulse 1000ms 1;
     background-color: #20e2d7;
     color: #434343;
-}
-
-/************************* Grilla Carrito **********************/
-
-.contenedor-carrito{
-    grid-area: carrito;
-    border: 1px dashed red;
-    /* background-color: red; */
 }
 
 /************************* Grilla Productos **********************/

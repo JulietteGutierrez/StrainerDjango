@@ -1,13 +1,13 @@
 <table class="table table-bordered">
   <thead>
       <tr>
-          <th colspan="3" class="text-center">
+          <th colspan="3" class="carrito--titulo">
               Carrito de compras
           </th>
       </tr>
-      <th>Producto</th>
-      <th>Cantidad</th>
-      <th>Suma</th>
+      <th class="carrito--titulo">Producto</th>
+      <th class="carrito--titulo">Cantidad</th>
+      <th class="carrito--titulo">Suma</th>
   </thead>
   <tbody>
       {% if request.session.carrito.items %}
@@ -16,20 +16,15 @@
               <td>
                   {{value.nombre}}
               </td>
-              <td>
-                  {{value.cantidad}}
+              <td class="carrito--cantidad">
+                <span class="carrito--cantidad--num">
+                  <a href="{% url 'restar' value.producto_id %}" class="btn btn-sm carrito--cantidad--accion">-</a>
+                  {{value.cantidad|floatformat:"0"}}
+                  <a href="{% url 'agregar' value.producto_id %}" class="btn btn-sm carrito--cantidad--accion">+</a>
+                </span>
               </td>
               <td>
-                  <a href="{% url 'agregar' value.producto_id %}" class="btn btn-sm btn-success">+</a>
-                  <a href="{% url 'restar' value.producto_id %}" class="btn btn-sm btn-success">-</a>
-              </td>
-              <td>
-{% comment %}
-              <a href="{% url 'agregar' producto.id %}" class="btn btn-success"> + </a> 
-              <a href="{% url 'restar' producto.id %}" class="btn btn-success"> - </a>
-              <br/>
-{% endcomment %}
-                  ${{value.precio}}
+                  ${{value.precio|floatformat:"2g"}}
               </td>
           </tr>
           {%endfor%}
@@ -45,14 +40,14 @@
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="3">
-        Total: $ {{importe_total_carrito}}
+      <td colspan="3" class="carrito--total">
+        Total: $ {{importe_total_carrito|floatformat:"2g"}}
       </td>
     </tr>
 {% comment %}
                   Pongo "not" en el if, solo para ver el botón hasta que ande el carrito 
 {% endcomment %}
-    {% if not request.session.carrito.items %}
+    {% if request.session.carrito.items %}
       <tr>
         <td colspan="3">
 {% comment %} 
