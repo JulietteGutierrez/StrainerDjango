@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import environ
 import os
+from django.contrib.messages import constants as mensajes_de_error
 
 env = environ.Env()
 environ.Env.read_env()
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'publica',
     'autenticacion',
+    'pedidos',
     # 'crispy_forms',
     # 'crispy_bootstrap4',
 ]
@@ -151,3 +153,23 @@ STATIC_ROOT = BASE_DIR / 'static_root'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CRISPY_TEMPLATE_PACK ='bootstrap4'
+
+# configuración de email
+
+EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST="smtp.gmail.com"
+EMAIL_USE_TLS=True
+EMAIL_PORT=587
+EMAIL_HOST_USER="nadia.vero8787@gmail.com"
+EMAIL_HOST_PASSWORD="zmdfidarowfslpgv"
+
+MESSAGES_TAGS={
+mensajes_de_error.DEBUG:'debug',
+mensajes_de_error.INFO:'info',
+mensajes_de_error.SUCCESS:'success',
+mensajes_de_error.WARNING:'warning',
+mensajes_de_error.ERROR:'danger',
+}
+
+AUTH_USER_MODEL ='autenticacion.Usuario'
+

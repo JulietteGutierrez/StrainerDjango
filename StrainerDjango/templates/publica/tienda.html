@@ -50,12 +50,13 @@
         {% include "publica/widget.html" %}
     </section>
     <section class="content">
-      <div id="contenedor-productos" class="contenedor-productos">
+      <div id="contenedor-productos" class="contenedor-productos"> 
         {% for producto in productos %}
           <div class="producto">
             <a href="./producto/{{producto.id}}">
               <div class="box-img">
-                <img class="producto--img" src="{% static 'publica/assets/img/productos/' %}{{producto.imagen}}">
+                {% comment %} <img class="producto--img" src="{% static '/publica/assets/img/productos' %}{{producto.imagen}}"> {% endcomment %}
+                <img src="{{producto.imagen.url}}" class="card-img-top">
               </div>
               <div class="producto--datos">
                 <h3 class="producto--nombre">{{producto.nombre}}</h3>

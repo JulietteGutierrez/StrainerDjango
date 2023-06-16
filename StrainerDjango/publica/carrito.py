@@ -48,3 +48,4 @@ class Carrito:
     def limpiar_carrito(self):
         self.session["carrito"]={}
         self.session.modified=True 
+ 

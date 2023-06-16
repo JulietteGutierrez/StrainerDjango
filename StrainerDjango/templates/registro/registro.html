@@ -14,14 +14,17 @@
 
 {% block contenido %}
 {% comment %} {% load crispy_forms_tags %}  {% endcomment %}
-
+<div class="contenedor">
 <form method="post" action="">
     {% csrf_token %}
-    <div class="contenedor">
-        {{ form }}
+    
+       
+        {{ form.as_p }}  
+        {% comment %} {{ form }} {% endcomment %}
 
     <input type="submit" class="btn btn-success"></button>
-    </div>
-</form>  
+    
+</form>
+</div>  
 
 {% endblock contenido %}

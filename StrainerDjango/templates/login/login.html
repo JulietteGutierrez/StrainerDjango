@@ -18,7 +18,17 @@
 <form method="post" action="">
     {% csrf_token %}
     <div class="contenedor">
-        {{ form }}
+        {% comment %} => intentando mostrar un cartelito que aun no funciona {% endcomment %}
+        
+        {% if messages %} 
+        {% for mensaje in messages %}
+            <span class="alert alert-{{mensaje.tags}}"> {{mensaje}} </span>
+            
+        {% endfor %}
+
+        {% endif %} 
+        {{ form.as_p }}
+        {% comment %} {{ form }} {% endcomment %}
 
     <input type="submit" class="btn btn-success">Login</button>
     </div>

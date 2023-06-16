@@ -1,4 +1,4 @@
-#!d:\17 de mayo\strainerdjango\mientorno\scripts\python.exe
+#!d:\desarrollonadia-2\strainerdjango\mientorno\scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
