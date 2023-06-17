@@ -1,23 +1,16 @@
 from django.contrib import messages
 from django.shortcuts import redirect, render
-
 from django.contrib.auth.decorators import login_required
-from publica.carrito import Carrito
-
-from pedidos.models import LineaPedido, Pedido
-
 from django.template.loader import render_to_string
-
 from django.utils.html import strip_tags
-
 from django.core.mail import send_mail
 
+from publica.carrito import Carrito
+from pedidos.models import LineaPedido, Pedido
 from publica.models import Producto
-
 from publica.context_processor import importe_total_carrito #no funciona!!
 
 # Create your views here.
-
 
 @login_required(login_url='/autenticacion/logear')
 def procesar_pedido(request):
@@ -38,8 +31,9 @@ def procesar_pedido(request):
         pedido=pedido,
         lineas_pedido=lineas_pedido,
         nombreusuario=request.user.username,
-        email_usuario=request.user.email
-        # total= pedido.total
+        email_usuario=request.user.email,
+    #    total= pedido.total
+        total=importe_total_carrito(request)
     )
     #mensaje para el futuro
     messages.success(request, "El pedido se ha creado correctamente")
@@ -48,18 +42,17 @@ def procesar_pedido(request):
     #return redirect('listado_productos')
     #return render(request, "tienda/tienda.html",{"productos":productos})
     
-
 def enviar_mail(**kwargs):
     asunto="Gracias por el pedido"
     mensaje=render_to_string("emails/pedido.html", {
         "pedido": kwargs.get("pedido"),
         "lineas_pedido": kwargs.get("lineas_pedido"),
         "nombreusuario":kwargs.get("nombreusuario"),
-        "email_usuario":kwargs.get("email_usuario")
-        # "total":kwargs.get("total")               
+        "email_usuario":kwargs.get("email_usuario"),
+        "total":kwargs.get("total")
         })
 
     mensaje_texto = strip_tags(mensaje)
     from_email="nadia.vero8787@gmai.com" 
     to=kwargs.get("email_usuario")
-    send_mail(asunto,mensaje_texto,from_email,[to], html_message=mensaje)
+    send_mail(asunto, mensaje_texto, from_email, [to], html_message=mensaje)

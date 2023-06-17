@@ -10,7 +10,7 @@ def importe_total_carrito(request):
     except:
         total=0
 
-    return{"importe_total_carrito": total}
+    return {"importe_total_carrito": total}
     
     # total=0
     # if request.user.is_authenticated:

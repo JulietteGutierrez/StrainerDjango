@@ -130,12 +130,6 @@ def limpiar_carrito(request, producto_id):
 #     contexto['mensaje_provisorio'] = f'Se ha agregado {cantidad} item del Producto:{id}'
 #     return redirect('../../', contexto)
 
-#########################################################################
-#                                                                       #
-# Cuando agreguemos la Base de Datos las siguientes funciones vuelan... #
-#                                                                       #
-#########################################################################
-
 def getDictCategorias(filtroCategoria=0):
     selectDistinctCategoriasFromProductos = []
     for n in range(1, 6):

@@ -24,13 +24,11 @@ class Pedido(models.Model):
     def __str__(self):
         return self.id
 
-
     class Meta:
         db_table='pedidos'
         verbose_name='Pedido'
         verbose_name_plural='Pedidos'
         ordering=['id']
-
 
 class LineaPedido(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE) 
