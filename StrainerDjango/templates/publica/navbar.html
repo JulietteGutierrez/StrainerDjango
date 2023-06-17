@@ -23,6 +23,26 @@
       <li class="nav-item {{ contacto }}">
         <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
       </li> 
+      {% if user.is_authenticated %}
+      <li class="nav-item {{ registro }}">
+        <a class="nav-link">Hola {{user.username}}</a>
+      </li>   
+      <li class="nav-item {{ cerrar_sesion }}">
+        <a class="nav-link" href="{% url 'cerrar_sesion'%}" >Cerrar sesion</a>
+      </li> 
+      {% else %}
+      <li class="nav-item {{ registro }}">
+        <a class="nav-link" href="{% url 'logear'%}" >Login</a>
+      </li> 
+      <li class="nav-item {{ cerrar_sesion }}">
+        <a class="nav-link" href="{% url 'Autenticacion' %}" >Registrate</a>
+      {% endif %}
+      </li>
     </ul>
   
+
+
+
+
+
 </nav> 

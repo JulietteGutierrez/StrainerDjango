@@ -29,6 +29,7 @@
          {% include 'publica/navbar.html' %} 
         
         <section class="coffee-header1">
+          {% comment %} 
           <div style="text-align:right; margin-right: 50px; color:white">
             {% if user.is_authenticated %}
               Hola {{user.username}} &nbsp; &nbsp;<a href="{% url 'cerrar_sesion'%}" style="color:white">Cerrar sesion</a>
@@ -37,6 +38,7 @@
             {% endif %}
 
           </div>
+          {% endcomment %} 
         <div class="transbox1">
           <img
             class="index-logo1"
