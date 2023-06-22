@@ -2,7 +2,8 @@
 
 .contenedor-carrito{
   grid-area: carrito;
-  border: 1px dashed red;
+  /* border: 1px dashed red; */
+  padding-right: 10px;
   /* background-color: red; */
 }
 

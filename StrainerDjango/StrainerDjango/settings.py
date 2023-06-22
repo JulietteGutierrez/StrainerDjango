@@ -161,7 +161,7 @@ EMAIL_HOST="smtp.gmail.com"
 EMAIL_USE_TLS=True
 EMAIL_PORT=587
 EMAIL_HOST_USER="nadia.vero8787@gmail.com"
-EMAIL_HOST_PASSWORD="zmdfidarowfslpgv"
+EMAIL_HOST_PASSWORD= env("EMAIL_PASSWORD")
 
 MESSAGES_TAGS={
 mensajes_de_error.DEBUG:'debug',
