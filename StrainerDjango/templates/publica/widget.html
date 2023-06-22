@@ -48,8 +48,7 @@
 {% comment %}
                   Pongo "not" en el if, solo para ver el botón hasta que ande el carrito 
 {% endcomment %}
-    {% if request.session.carrito.items %}
-      <tr>
+     {% if request.session.carrito.items %}       <tr>
         <td colspan="3">
 {% comment %} 
           <a href="{% url 'comprar' %}">
@@ -61,6 +60,6 @@
           </a>
         </td>
       </tr>
-    {% endif %}
+    {% endif %} 
   </tfoot>
 </table>

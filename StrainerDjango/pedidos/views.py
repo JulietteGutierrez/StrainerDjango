@@ -32,11 +32,11 @@ def procesar_pedido(request):
         lineas_pedido=lineas_pedido,
         nombreusuario=request.user.username,
         email_usuario=request.user.email,
-    #    total= pedido.total
+    
         total=importe_total_carrito(request)
     )
-    #mensaje para el futuro
-    messages.success(request, "El pedido se ha creado correctamente")
+    
+    # messages.success(request, "El pedido se ha creado correctamente")
     
     return redirect('../tienda')
     #return redirect('listado_productos')
