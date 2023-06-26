@@ -1,11 +1,14 @@
 from tabnanny import verbose
 from django.db import models
 
+
 from django.contrib.auth import get_user_model #devuelve el usuario activo actual
 from django.db.models import F,Sum, FloatField  # para calcular el total de una orden de pedido
 from publica.models import Producto
 
 User=get_user_model()
+
+
 
 # Create your models here.
 
@@ -22,7 +25,7 @@ class Pedido(models.Model):
         )["total"] or FloatField(0)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
     class Meta:
         db_table='pedidos'
@@ -39,6 +42,7 @@ class LineaPedido(models.Model):
 
     def __str__(self):
         return f'{self.cantidad} de {self.producto.nombre}'
+
 
     class Meta:
         db_table='lineapedidos'

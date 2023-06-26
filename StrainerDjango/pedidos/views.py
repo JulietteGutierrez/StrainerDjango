@@ -10,6 +10,11 @@ from pedidos.models import LineaPedido, Pedido
 from publica.models import Producto
 from publica.context_processor import importe_total_carrito #no funciona!!
 
+
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 # Create your views here.
 
 @login_required(login_url='/autenticacion/logear')
@@ -53,6 +58,7 @@ def enviar_mail(**kwargs):
         })
 
     mensaje_texto = strip_tags(mensaje)
-    from_email="nadia.vero8787@gmai.com" 
+    #from_email="holastrainer@gmail.com" 
+    from_email=env("EMAIL_HOST_USER")
     to=kwargs.get("email_usuario")
     send_mail(asunto, mensaje_texto, from_email, [to], html_message=mensaje)

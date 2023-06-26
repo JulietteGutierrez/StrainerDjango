@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'publica',
     'autenticacion',
     'pedidos',
+    'rest_framework',
     # 'crispy_forms',
     # 'crispy_bootstrap4',
 ]
@@ -157,11 +158,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # configuración de email
 
 EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST="smtp.gmail.com"
-EMAIL_USE_TLS=True
-EMAIL_PORT=587
-EMAIL_HOST_USER="nadia.vero8787@gmail.com"
-EMAIL_HOST_PASSWORD= env("EMAIL_PASSWORD")
+EMAIL_HOST = env("EMAIL_HOST")
+EMAIL_PORT = env("EMAIL_PORT")
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+#RECIPIENT_ADDRESS = env("RECIPIENT_ADDRESS")
+
+
 
 MESSAGES_TAGS={
 mensajes_de_error.DEBUG:'debug',
